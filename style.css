@@ -1,220 +1,44 @@
-* {
-  box-sizing: border-box;
-}
+@media (min-width: 768px) {
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  color: #ffffff;
-  background: #090909;
-}
-
-.phone {
-  width: 100%;
-  max-width: 480px;
-  min-height: 100vh;
-  margin: auto;
-  overflow: hidden;
-  position: relative;
-  background:
-    radial-gradient(circle at 15% 10%, rgba(255, 75, 0, 0.35), transparent 30%),
-    radial-gradient(circle at 90% 35%, rgba(0, 150, 70, 0.28), transparent 30%),
-    linear-gradient(160deg, #090909 0%, #151515 50%, #080808 100%);
-}
-
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 18px;
-  background: rgba(0, 0, 0, 0.65);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ff6500;
-  box-shadow: 0 0 15px #ff6500;
-}
-
-.hero {
-  min-height: 440px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 35px 20px;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: rgba(255, 80, 0, 0.15);
-  filter: blur(70px);
-  top: 20px;
-  left: -100px;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: rgba(0, 160, 80, 0.14);
-  filter: blur(70px);
-  bottom: -80px;
-  right: -100px;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.small-title {
-  font-size: 12px;
-  letter-spacing: 5px;
-  color: #ff9a52;
-  font-weight: bold;
-  margin-bottom: 18px;
-}
-
-.hero h1 {
-  margin: 0;
-  font-size: 44px;
-  line-height: 1.05;
-  font-weight: 900;
-  letter-spacing: 1px;
-  text-shadow: 0 5px 25px rgba(0, 0, 0, 0.7);
-}
-
-.hero h1 span {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 30px;
-  color: #ffffff;
-}
-
-.hero p {
-  margin-top: 18px;
-  color: #cccccc;
-  font-size: 14px;
-}
-
-.moving-cycle {
-  font-size: 62px;
-  margin: 25px auto 10px;
-  animation: cycleMove 4s ease-in-out infinite;
-  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.6));
-}
-
-@keyframes cycleMove {
-  0% {
-    transform: translateX(-90px);
+  body {
+    background: #090909;
   }
 
-  50% {
-    transform: translateX(90px);
+  .phone {
+    max-width: 1200px;
+    min-height: 100vh;
+    margin: 0 auto;
   }
 
-  100% {
-    transform: translateX(-90px);
+  .hero {
+    min-height: 520px;
+    padding: 70px 60px;
   }
-}
 
-.vote-line {
-  margin: 18px 0 8px;
-  font-size: 20px;
-  font-weight: 800;
-  color: #ffffff;
-}
+  .hero h1 {
+    font-size: 64px;
+  }
 
-.work-slider {
-  width: 100%;
-  min-height: 60px;
-  padding: 10px 15px;
-}
+  .hero h1 span {
+    font-size: 42px;
+  }
 
-#workText {
-  margin: 0;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: 0.5s ease;
-  color: #dddddd;
-  font-size: 13px;
-  line-height: 1.5;
-}
+  .moving-cycle {
+    font-size: 75px;
+    margin: 35px auto 15px;
+  }
 
-#workText.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .playlist {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+  }
 
-.playlist {
-  margin: 18px;
-  padding: 18px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(15px);
-}
+  .youtube-wrap iframe {
+    height: 500px;
+  }
 
-.playlist-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.playlist-head h2 {
-  margin: 0;
-  font-size: 21px;
-}
-
-.playlist-head p {
-  margin: 5px 0 0;
-  color: #aaa;
-  font-size: 13px;
-}
-
-.playlist-head span {
-  font-size: 26px;
-}
-
-.youtube-wrap {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 17px;
-}
-
-.youtube-wrap iframe {
-  width: 100%;
-  height: 300px;
-  border: 0;
-  display: block;
-}
-
-footer {
-  padding: 25px 15px;
-  text-align: center;
-  color: #777;
-  font-size: 12px;
+  footer {
+    padding: 35px;
+  }
 }
