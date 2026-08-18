@@ -9,108 +9,113 @@
 
 <body>
 
-  <header class="topbar">
-    <div class="logo">PDA 🚲</div>
-    <div class="mission">MISSION 2027</div>
-  </header>
+<header class="topbar">
+  <div class="brand">PDA 🚲</div>
+  <div class="mission">MISSION 2027</div>
+</header>
 
-  <main>
+<main>
 
-    <section class="hero">
+<section class="hero">
 
-      <div class="glow red"></div>
-      <div class="glow green"></div>
+  <div class="red-glow"></div>
+  <div class="green-glow"></div>
 
-      <div class="hero-content">
+  <div class="hero-content">
 
-        <div class="label">PDA • MISSION 2027</div>
+    <div class="label">PDA • MISSION 2027</div>
 
-        <h1>
-          समाजवादी पार्टी
-          <span>🚲 2027</span>
-        </h1>
+    <h1>
+      समाजवादी पार्टी
+      <span>🚲 2027</span>
+    </h1>
 
-        <p class="subtitle">
-          अपनी playlist • अपना music • अपना page
-        </p>
+    <p class="subtitle">
+      अपनी playlist • अपना music • अपना page
+    </p>
 
-        <div class="cycle">
-          🚲
-        </div>
+    <div class="cycle">
+      🚲
+    </div>
 
-        <div class="info-box">
-          <p id="workText">
-            1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन
-          </p>
-        </div>
+    <div class="info-box">
+      <p id="workText">
+        1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन
+      </p>
+    </div>
 
-      </div>
+  </div>
 
-    </section>
-
-
-    <section class="music-section">
-
-      <div class="section-title">
-        <div>
-          <span>🎵</span>
-          <h2>Mission 2027 Playlist</h2>
-          <p>YouTube Playlist</p>
-        </div>
-
-        <div class="play-icon">▶</div>
-      </div>
-
-      <div class="youtube-box">
-
-        <iframe
-          src="https://www.youtube.com/embed/videoseries?list=PLlBTRvaC0XtKnzRLR5m7dc1S58gk_nZJ_"
-          title="PDA Mission 2027 Playlist"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-
-      </div>
-
-    </section>
-
-  </main>
+</section>
 
 
-  <footer>
-    PDA • Mission 2027
-  </footer>
+<section class="music">
+
+  <div class="music-header">
+
+    <div>
+      <h2>🎵 Mission 2027 Playlist</h2>
+      <p>YouTube Playlist</p>
+    </div>
+
+    <div class="play">▶</div>
+
+  </div>
+
+  <div class="youtube">
+
+    <iframe
+      src="https://www.youtube.com/embed/videoseries?list=PLlBTRvaC0XtKnzRLR5m7dc1S58gk_nZJ_"
+      title="Mission 2027 Playlist"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+
+</section>
+
+</main>
 
 
-  <script>
+<footer>
+  PDA • Mission 2027
+  <small>Created by Pranjul Yadav</small>
+</footer>
 
-    const works = [
-      "1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन",
-      "लखनऊ मेट्रो — शहरी परिवहन परियोजना",
-      "आगरा-लखनऊ एक्सप्रेसवे — 302 किलोमीटर का एक्सप्रेसवे",
-      "किसान बाज़ार — किसानों से जुड़ी बाजार व्यवस्था",
-      "लोहिया आवास योजना — ग्रामीण आवास से जुड़ी योजना",
-      "108 आपातकालीन एम्बुलेंस सेवा — स्वास्थ्य सेवा"
-    ];
 
-    let index = 0;
+<script>
 
-    setInterval(function () {
+const works = [
+  "1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन",
+  "लखनऊ मेट्रो — शहरी परिवहन परियोजना",
+  "आगरा-लखनऊ एक्सप्रेसवे — 302 किलोमीटर का एक्सप्रेसवे",
+  "किसान बाज़ार — किसानों से जुड़ी बाजार व्यवस्था",
+  "लोहिया आवास योजना — ग्रामीण आवास से जुड़ी योजना",
+  "108 आपातकालीन एम्बुलेंस सेवा — स्वास्थ्य सेवा"
+];
 
-      index = (index + 1) % works.length;
+let current = 0;
 
-      const text = document.getElementById("workText");
+setInterval(() => {
 
-      text.style.opacity = "0";
+  const text = document.getElementById("workText");
 
-      setTimeout(function () {
-        text.textContent = works[index];
-        text.style.opacity = "1";
-      }, 400);
+  text.style.opacity = "0";
 
-    }, 3500);
+  setTimeout(() => {
 
-  </script>
+    current = (current + 1) % works.length;
+
+    text.textContent = works[current];
+
+    text.style.opacity = "1";
+
+  }, 400);
+
+}, 3500);
+
+</script>
 
 </body>
 </html>
