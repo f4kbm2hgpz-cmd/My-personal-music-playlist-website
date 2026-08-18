@@ -10,167 +10,170 @@ body {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
   background: #050505;
   color: white;
 }
 
 
-/* =========================
-   TOP BAR
-========================= */
+/* TOP BAR */
 
 .topbar {
-  width: 100%;
-  height: 70px;
+  height: 65px;
   padding: 0 5%;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  background: rgba(0, 0, 0, 0.75);
-  border-bottom: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.8);
 
-  position: relative;
-  z-index: 10;
+  border-bottom: 1px solid rgba(255,255,255,.12);
 }
 
-.logo {
+.brand {
   font-size: 20px;
   font-weight: 900;
 }
 
 .mission {
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 3px;
-  color: #ff7a32;
-  font-weight: bold;
+  color: #ff7535;
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero {
-  width: 100%;
   min-height: 600px;
 
   position: relative;
   overflow: hidden;
 
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
   text-align: center;
 
   background:
     linear-gradient(
       135deg,
-      #090909 0%,
-      #260b05 45%,
-      #071c10 100%
+      #080808,
+      #260b06,
+      #071c10
     );
 }
 
-.glow {
+.red-glow,
+.green-glow {
   position: absolute;
-  width: 400px;
-  height: 400px;
+
+  width: 420px;
+  height: 420px;
+
   border-radius: 50%;
+
   filter: blur(100px);
+
   opacity: .35;
 }
 
-.glow.red {
-  background: #b83200;
-  top: -150px;
+.red-glow {
+  background: #b63200;
+  top: -170px;
   left: -150px;
 }
 
-.glow.green {
-  background: #008044;
-  bottom: -150px;
-  right: -150px;
+.green-glow {
+  background: #00783e;
+  right: -160px;
+  bottom: -170px;
 }
 
 .hero-content {
   width: 90%;
   max-width: 900px;
+
   position: relative;
   z-index: 2;
 }
 
 .label {
   color: #ff8a4c;
-  font-size: 13px;
-  font-weight: bold;
+
+  font-size: 12px;
+
   letter-spacing: 5px;
-  margin-bottom: 20px;
+
+  font-weight: bold;
 }
 
 h1 {
-  margin: 0;
+  margin: 20px 0 0;
 
-  font-size: clamp(42px, 7vw, 82px);
+  font-size: clamp(42px, 7vw, 80px);
 
   line-height: 1.05;
-  font-weight: 900;
 
-  text-shadow:
-    0 5px 30px rgba(0,0,0,.6);
+  font-weight: 900;
 }
 
 h1 span {
   display: block;
+
   margin-top: 12px;
-  font-size: clamp(30px, 5vw, 52px);
+
+  font-size: clamp(30px, 5vw, 50px);
 }
 
 .subtitle {
-  color: #bcbcbc;
-  font-size: 16px;
+  color: #aaa;
+
+  font-size: 15px;
+
   margin-top: 20px;
 }
 
 
-/* =========================
-   STATIONARY CYCLE
-========================= */
+/* CYCLE */
 
 .cycle {
   font-size: 75px;
-  margin: 35px 0 25px;
 
-  /* cycle अब अपनी जगह रहेगी */
+  margin: 35px 0;
+
+  /* cycle ek hi jagah rahegi */
   animation: none;
 
-  filter:
-    drop-shadow(0 10px 20px rgba(0,0,0,.7));
+  filter: drop-shadow(
+    0 10px 20px rgba(0,0,0,.7)
+  );
 }
 
 
-/* =========================
-   CHANGING INFORMATION
-========================= */
+/* CHANGING TEXT */
 
 .info-box {
   width: 90%;
   max-width: 700px;
+
   min-height: 65px;
 
   margin: auto;
-  padding: 16px 20px;
+
+  padding: 15px 20px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   background: rgba(255,255,255,.07);
 
-  border: 1px solid rgba(255,255,255,.13);
+  border: 1px solid rgba(255,255,255,.12);
 
   border-radius: 18px;
 
@@ -183,21 +186,20 @@ h1 span {
   color: #ddd;
 
   font-size: 14px;
+
   line-height: 1.5;
 
-  transition: opacity .4s ease;
+  transition: opacity .4s;
 }
 
 
-/* =========================
-   MUSIC SECTION
-========================= */
+/* MUSIC */
 
-.music-section {
+.music {
   width: 90%;
   max-width: 1050px;
 
-  margin: 35px auto;
+  margin: 40px auto;
 
   padding: 25px;
 
@@ -207,169 +209,148 @@ h1 span {
 
   border: 1px solid rgba(255,255,255,.12);
 
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.5);
-
-  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
 }
 
-.section-title {
+.music-header {
   display: flex;
-  align-items: center;
+
   justify-content: space-between;
+
+  align-items: center;
 
   margin-bottom: 20px;
 }
 
-.section-title h2 {
-  display: inline-block;
-  margin: 0 0 0 8px;
+.music-header h2 {
+  margin: 0;
 
   font-size: 24px;
 }
 
-.section-title p {
-  margin: 7px 0 0 30px;
+.music-header p {
+  margin: 7px 0 0;
 
   color: #999;
 
   font-size: 13px;
 }
 
-.play-icon {
+.play {
   width: 45px;
   height: 45px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   border-radius: 50%;
 
   background: #ff6500;
-
-  box-shadow:
-    0 0 25px rgba(255,101,0,.35);
 }
 
 
-/* =========================
-   YOUTUBE
-========================= */
+/* YOUTUBE */
 
-.youtube-box {
+.youtube {
   width: 100%;
+
   overflow: hidden;
+
   border-radius: 18px;
-  background: #000;
+
+  background: black;
 }
 
-.youtube-box iframe {
-  display: block;
-
+.youtube iframe {
   width: 100%;
-  height: 500px;
+
+  height: 550px;
+
+  display: block;
 
   border: 0;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer {
-  padding: 35px;
+  padding: 30px;
 
   text-align: center;
 
-  color: #666;
+  color: #777;
 
   font-size: 12px;
 }
 
+footer small {
+  display: block;
 
-/* =========================
-   PHONE
-========================= */
+  margin-top: 6px;
+
+  color: #555;
+
+  font-size: 10px;
+}
+
+
+/* PHONE */
 
 @media (max-width: 767px) {
 
   .topbar {
     height: 58px;
+
     padding: 0 18px;
   }
 
-  .logo {
+  .brand {
     font-size: 17px;
   }
 
   .mission {
     font-size: 10px;
-    letter-spacing: 2px;
   }
 
   .hero {
     min-height: 500px;
   }
 
-  .hero-content {
-    width: 92%;
-  }
-
-  .label {
-    font-size: 10px;
-    letter-spacing: 3px;
-  }
-
-  .subtitle {
-    font-size: 13px;
-  }
-
   .cycle {
     font-size: 58px;
-    margin: 28px 0 20px;
+
+    margin: 28px 0;
   }
 
-  .info-box {
-    width: 100%;
-  }
-
-  .music-section {
+  .music {
     width: calc(100% - 24px);
+
     margin: 20px auto;
+
     padding: 15px;
-    border-radius: 20px;
   }
 
-  .section-title h2 {
+  .music-header h2 {
     font-size: 18px;
   }
 
-  .section-title p {
-    font-size: 11px;
-    margin-left: 26px;
-  }
-
-  .play-icon {
+  .play {
     width: 38px;
     height: 38px;
-    font-size: 13px;
   }
 
-  .youtube-box iframe {
+  .youtube iframe {
     height: 300px;
   }
 
-  footer {
-    padding: 25px;
-  }
 }
 
 
-/* =========================
-   LAPTOP / DESKTOP
-========================= */
+/* LAPTOP */
 
 @media (min-width: 768px) {
 
@@ -377,13 +358,9 @@ footer {
     min-height: 650px;
   }
 
-  .music-section {
+  .music {
     margin-top: 50px;
     margin-bottom: 50px;
-  }
-
-  .youtube-box iframe {
-    height: 560px;
   }
 
 }
