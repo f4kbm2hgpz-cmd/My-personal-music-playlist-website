@@ -38,13 +38,13 @@
       </div>
 
       <div class="controls">
-        <button aria-label="Previous">⏮</button>
+        <button id="prevBtn" aria-label="Previous">⏮</button>
 
         <button class="play" id="playBtn" aria-label="Play">
           ▶
         </button>
 
-        <button aria-label="Next">⏭</button>
+        <button id="nextBtn" aria-label="Next">⏭</button>
       </div>
 
       <div class="progress">
@@ -67,7 +67,8 @@
 
       <div class="youtube-wrap">
         <iframe
-          src="https://www.youtube.com/embed/videoseries?list=PLlBTRvaC0XtKnzRLR5m7dc1S58gk_nZJ_"
+          id="youtubePlayer"
+          src="https://www.youtube.com/embed/videoseries?list=PLlBTRvaC0XtKnzRLR5m7dc1S58gk_nZJ_&enablejsapi=1"
           title="YouTube playlist"
           allow="autoplay; encrypted-media; picture-in-picture"
           allowfullscreen>
@@ -83,6 +84,5 @@
   </main>
 
   <script src="script.js"></script>
-
 </body>
 </html>
