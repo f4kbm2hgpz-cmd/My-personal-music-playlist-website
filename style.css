@@ -6,30 +6,15 @@ html,
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
   min-height: 100%;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #090909;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #050505;
   color: white;
 }
 
-/* =========================
-   MAIN CONTAINER
-========================= */
-
-.phone {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0 auto;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 10% 10%, rgba(160, 30, 0, .35), transparent 30%),
-    radial-gradient(circle at 90% 40%, rgba(0, 100, 50, .3), transparent 30%),
-    linear-gradient(150deg, #050505, #181818, #050505);
-}
 
 /* =========================
    TOP BAR
@@ -37,26 +22,32 @@ body {
 
 .topbar {
   width: 100%;
-  padding: 16px 20px;
+  height: 70px;
+  padding: 0 5%;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  background: rgba(0, 0, 0, .7);
+  background: rgba(0, 0, 0, 0.75);
   border-bottom: 1px solid rgba(255,255,255,.12);
 
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 2px;
+  position: relative;
+  z-index: 10;
 }
 
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ff6500;
+.logo {
+  font-size: 20px;
+  font-weight: 900;
 }
+
+.mission {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: #ff7a32;
+  font-weight: bold;
+}
+
 
 /* =========================
    HERO
@@ -64,115 +55,317 @@ body {
 
 .hero {
   width: 100%;
-  min-height: 450px;
-  padding: 50px 20px;
+  min-height: 600px;
+
+  position: relative;
+  overflow: hidden;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   text-align: center;
-  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      #090909 0%,
+      #260b05 45%,
+      #071c10 100%
+    );
+}
+
+.glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: .35;
+}
+
+.glow.red {
+  background: #b83200;
+  top: -150px;
+  left: -150px;
+}
+
+.glow.green {
+  background: #008044;
+  bottom: -150px;
+  right: -150px;
 }
 
 .hero-content {
-  width: 100%;
-  max-width: 800px;
+  width: 90%;
+  max-width: 900px;
   position: relative;
   z-index: 2;
 }
 
-.small-title {
-  font-size: 12px;
-  letter-spacing: 5px;
-  color: #ff8a45;
+.label {
+  color: #ff8a4c;
+  font-size: 13px;
   font-weight: bold;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
 }
 
-.hero h1 {
-  margin: 20px 0 0;
-  font-size: 44px;
+h1 {
+  margin: 0;
+
+  font-size: clamp(42px, 7vw, 82px);
+
   line-height: 1.05;
   font-weight: 900;
+
+  text-shadow:
+    0 5px 30px rgba(0,0,0,.6);
 }
 
-.hero h1 span {
-  font-size: 30px;
+h1 span {
+  display: block;
+  margin-top: 12px;
+  font-size: clamp(30px, 5vw, 52px);
 }
 
-.hero p {
-  color: #bbb;
-  font-size: 14px;
+.subtitle {
+  color: #bcbcbc;
+  font-size: 16px;
+  margin-top: 20px;
 }
 
-.moving-cycle {
-  font-size: 65px;
-  margin: 30px auto 15px;
-}
 
 /* =========================
-   PLAYLIST
+   STATIONARY CYCLE
 ========================= */
 
-.playlist {
-  width: calc(100% - 36px);
-  max-width: 950px;
-  margin: 20px auto;
-  padding: 18px;
+.cycle {
+  font-size: 75px;
+  margin: 35px 0 25px;
 
-  border-radius: 24px;
+  /* cycle अब अपनी जगह रहेगी */
+  animation: none;
+
+  filter:
+    drop-shadow(0 10px 20px rgba(0,0,0,.7));
+}
+
+
+/* =========================
+   CHANGING INFORMATION
+========================= */
+
+.info-box {
+  width: 90%;
+  max-width: 700px;
+  min-height: 65px;
+
+  margin: auto;
+  padding: 16px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background: rgba(255,255,255,.07);
+
+  border: 1px solid rgba(255,255,255,.13);
+
+  border-radius: 18px;
+
+  backdrop-filter: blur(15px);
+}
+
+.info-box p {
+  margin: 0;
+
+  color: #ddd;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  transition: opacity .4s ease;
+}
+
+
+/* =========================
+   MUSIC SECTION
+========================= */
+
+.music-section {
+  width: 90%;
+  max-width: 1050px;
+
+  margin: 35px auto;
+
+  padding: 25px;
+
+  border-radius: 25px;
+
+  background: rgba(255,255,255,.07);
+
   border: 1px solid rgba(255,255,255,.12);
 
-  box-shadow: 0 15px 40px rgba(0,0,0,.45);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.5);
+
+  backdrop-filter: blur(15px);
 }
 
-.playlist-head {
+.section-title {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
 }
 
-.playlist-head h2 {
-  margin: 0;
-  font-size: 21px;
+.section-title h2 {
+  display: inline-block;
+  margin: 0 0 0 8px;
+
+  font-size: 24px;
 }
 
-.playlist-head p {
-  margin: 5px 0 15px;
-  color: #aaa;
+.section-title p {
+  margin: 7px 0 0 30px;
+
+  color: #999;
+
   font-size: 13px;
 }
 
-.playlist-head span {
-  font-size: 25px;
+.play-icon {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ff6500;
+
+  box-shadow:
+    0 0 25px rgba(255,101,0,.35);
 }
 
-.youtube-wrap {
+
+/* =========================
+   YOUTUBE
+========================= */
+
+.youtube-box {
   width: 100%;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 18px;
+  background: #000;
 }
 
-.youtube-wrap iframe {
-  width: 100%;
-  height: 300px;
+.youtube-box iframe {
   display: block;
+
+  width: 100%;
+  height: 500px;
+
   border: 0;
 }
+
 
 /* =========================
    FOOTER
 ========================= */
 
 footer {
-  width: 100%;
-  padding: 30px;
+  padding: 35px;
+
   text-align: center;
-  color: #777;
+
+  color: #666;
+
   font-size: 12px;
 }
+
+
+/* =========================
+   PHONE
+========================= */
+
+@media (max-width: 767px) {
+
+  .topbar {
+    height: 58px;
+    padding: 0 18px;
+  }
+
+  .logo {
+    font-size: 17px;
+  }
+
+  .mission {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .hero {
+    min-height: 500px;
+  }
+
+  .hero-content {
+    width: 92%;
+  }
+
+  .label {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .cycle {
+    font-size: 58px;
+    margin: 28px 0 20px;
+  }
+
+  .info-box {
+    width: 100%;
+  }
+
+  .music-section {
+    width: calc(100% - 24px);
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 20px;
+  }
+
+  .section-title h2 {
+    font-size: 18px;
+  }
+
+  .section-title p {
+    font-size: 11px;
+    margin-left: 26px;
+  }
+
+  .play-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
+
+  .youtube-box iframe {
+    height: 300px;
+  }
+
+  footer {
+    padding: 25px;
+  }
+}
+
 
 /* =========================
    LAPTOP / DESKTOP
@@ -180,62 +373,17 @@ footer {
 
 @media (min-width: 768px) {
 
-  body {
-    background:
-      radial-gradient(circle at 20% 20%, #401000, transparent 35%),
-      radial-gradient(circle at 80% 60%, #00351c, transparent 35%),
-      #050505;
-  }
-
-  .phone {
-    max-width: 1400px;
-  }
-
-  .topbar {
-    padding: 20px 50px;
-  }
-
   .hero {
-    min-height: 560px;
-    padding: 80px 50px;
+    min-height: 650px;
   }
 
-  .small-title {
-    font-size: 14px;
+  .music-section {
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 
-  .hero h1 {
-    font-size: 70px;
-  }
-
-  .hero h1 span {
-    font-size: 46px;
-  }
-
-  .hero p {
-    font-size: 17px;
-  }
-
-  .moving-cycle {
-    font-size: 85px;
-    margin: 40px auto 20px;
-  }
-
-  .playlist {
-    width: 80%;
-    max-width: 1000px;
-    padding: 25px;
-  }
-
-  .playlist-head h2 {
-    font-size: 28px;
-  }
-
-  .youtube-wrap iframe {
+  .youtube-box iframe {
     height: 560px;
   }
 
-  footer {
-    padding: 45px;
-  }
 }
