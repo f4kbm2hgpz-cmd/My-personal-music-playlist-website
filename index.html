@@ -1,294 +1,116 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PDA Mission 2027</title>
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  min-height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #090909;
-  color: white;
-}
-
-.phone {
-  min-height: 100vh;
-  max-width: 480px;
-  margin: auto;
-
-  background:
-    radial-gradient(circle at 10% 10%, #7a2600, transparent 30%),
-    radial-gradient(circle at 90% 40%, #064b27, transparent 30%),
-    linear-gradient(150deg, #050505, #171717, #050505);
-
-  overflow: hidden;
-}
-
-.topbar {
-  padding: 16px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: rgba(0,0,0,.65);
-  border-bottom: 1px solid rgba(255,255,255,.15);
-
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ff6a00;
-  box-shadow: 0 0 15px #ff6a00;
-}
-
-.hero {
-  min-height: 470px;
-  padding: 45px 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  position: relative;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.small-title {
-  color: #ff8b3d;
-  font-size: 12px;
-  letter-spacing: 5px;
-  font-weight: bold;
-}
-
-h1 {
-  margin: 18px 0 0;
-  font-size: 44px;
-  line-height: 1.05;
-}
-
-h1 span {
-  font-size: 30px;
-}
-
-.hero p {
-  color: #bbb;
-  font-size: 14px;
-}
-
-.moving-cycle {
-  font-size: 65px;
-  margin: 30px 0 15px;
-
-  animation: ride 4s ease-in-out infinite;
-}
-
-@keyframes ride {
-  0% {
-    transform: translateX(-100px);
-  }
-
-  50% {
-    transform: translateX(100px);
-  }
-
-  100% {
-    transform: translateX(-100px);
-  }
-}
-
-.vote-line {
-  font-size: 20px;
-  margin: 10px 0;
-}
-
-.work-slider {
-  min-height: 60px;
-  margin-top: 15px;
-}
-
-#workText {
-  color: #ddd;
-  font-size: 14px;
-  line-height: 1.5;
-  transition: .5s;
-}
-
-.playlist {
-  margin: 18px;
-  padding: 18px;
-
-  border-radius: 24px;
-
-  background: rgba(255,255,255,.08);
-
-  border: 1px solid rgba(255,255,255,.15);
-
-  box-shadow: 0 15px 40px rgba(0,0,0,.5);
-}
-
-.playlist-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.playlist-head h2 {
-  margin: 0;
-}
-
-.playlist-head p {
-  color: #aaa;
-  font-size: 13px;
-}
-
-.playlist-head span {
-  font-size: 25px;
-}
-
-.youtube-wrap {
-  margin-top: 15px;
-  overflow: hidden;
-  border-radius: 16px;
-}
-
-.youtube-wrap iframe {
-  width: 100%;
-  height: 300px;
-  border: 0;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #777;
-  font-size: 12px;
-}
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDA Mission 2027</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<main class="phone">
+  <header class="topbar">
+    <div class="logo">PDA 🚲</div>
+    <div class="mission">MISSION 2027</div>
+  </header>
 
-  <div class="topbar">
-    <span>MISSION 2027</span>
-    <span class="dot"></span>
-    <span>PDA 🚲</span>
-  </div>
+  <main>
 
-  <section class="hero">
+    <section class="hero">
 
-    <div class="hero-content">
+      <div class="glow red"></div>
+      <div class="glow green"></div>
 
-      <div class="small-title">
-        PDA • MISSION 2027
-      </div>
+      <div class="hero-content">
 
-      <h1>
-        समाजवादी पार्टी
-        <br>
-        <span>🚲 2027</span>
-      </h1>
+        <div class="label">PDA • MISSION 2027</div>
 
-      <p>
-        Apni playlist • Apna music • Apna page
-      </p>
+        <h1>
+          समाजवादी पार्टी
+          <span>🚲 2027</span>
+        </h1>
 
-      <div class="moving-cycle">
-        🚲
-      </div>
-
-      <h2 class="vote-line">
-        2027 — आपका वोट, आपका फैसला
-      </h2>
-
-      <div class="work-slider">
-        <p id="workText">
-          1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन
+        <p class="subtitle">
+          अपनी playlist • अपना music • अपना page
         </p>
+
+        <div class="cycle">
+          🚲
+        </div>
+
+        <div class="info-box">
+          <p id="workText">
+            1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन
+          </p>
+        </div>
+
       </div>
 
-    </div>
+    </section>
 
-  </section>
 
-  <section class="playlist">
+    <section class="music-section">
 
-    <div class="playlist-head">
+      <div class="section-title">
+        <div>
+          <span>🎵</span>
+          <h2>Mission 2027 Playlist</h2>
+          <p>YouTube Playlist</p>
+        </div>
 
-      <div>
-        <h2>🎵 Mission 2027</h2>
-        <p>Playlist • Listen & Enjoy</p>
+        <div class="play-icon">▶</div>
       </div>
 
-      <span>▶</span>
+      <div class="youtube-box">
 
-    </div>
+        <iframe
+          src="https://www.youtube.com/embed/videoseries?list=PLlBTRvaC0XtKnzRLR5m7dc1S58gk_nZJ_"
+          title="PDA Mission 2027 Playlist"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen>
+        </iframe>
 
-    <div class="youtube-wrap">
+      </div>
 
-      <iframe
-        src="https://www.youtube.com/embed/videoseries?list=PLlBTRvaC0XtKnzRLR5m7dc1S58gk_nZJ_"
-        title="Mission 2027 Playlist"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+    </section>
 
-    </div>
+  </main>
 
-  </section>
 
   <footer>
-    Mission 2027 • PDA 🚲
+    PDA • Mission 2027
   </footer>
 
-</main>
 
-<script>
+  <script>
 
-const works = [
-  "1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन",
-  "लखनऊ मेट्रो — शहरी परिवहन परियोजना",
-  "आगरा-लखनऊ एक्सप्रेसवे — 302 किलोमीटर का एक्सप्रेसवे",
-  "किसान बाज़ार — किसानों से जुड़ी बाजार व्यवस्था",
-  "लोहिया आवास योजना — ग्रामीण आवास से जुड़ी योजना",
-  "108 आपातकालीन एम्बुलेंस सेवा — स्वास्थ्य सेवा"
-];
+    const works = [
+      "1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन",
+      "लखनऊ मेट्रो — शहरी परिवहन परियोजना",
+      "आगरा-लखनऊ एक्सप्रेसवे — 302 किलोमीटर का एक्सप्रेसवे",
+      "किसान बाज़ार — किसानों से जुड़ी बाजार व्यवस्था",
+      "लोहिया आवास योजना — ग्रामीण आवास से जुड़ी योजना",
+      "108 आपातकालीन एम्बुलेंस सेवा — स्वास्थ्य सेवा"
+    ];
 
-let i = 0;
+    let index = 0;
 
-setInterval(function() {
+    setInterval(function () {
 
-  i = (i + 1) % works.length;
+      index = (index + 1) % works.length;
 
-  document.getElementById("workText").textContent = works[i];
+      const text = document.getElementById("workText");
 
-}, 3500);
+      text.style.opacity = "0";
 
-</script>
+      setTimeout(function () {
+        text.textContent = works[index];
+        text.style.opacity = "1";
+      }, 400);
+
+    }, 3500);
+
+  </script>
 
 </body>
 </html>
