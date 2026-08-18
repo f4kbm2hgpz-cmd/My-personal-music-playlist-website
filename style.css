@@ -1,18 +1,35 @@
+/* ===== RESPONSIVE DESIGN ===== */
+
+.phone {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ===== LAPTOP / DESKTOP ===== */
+
 @media (min-width: 768px) {
 
   body {
+    min-height: 100vh;
+    display: block;
     background: #090909;
   }
 
   .phone {
+    width: 100%;
     max-width: 1200px;
     min-height: 100vh;
     margin: 0 auto;
   }
 
+  .topbar {
+    padding: 18px 40px;
+  }
+
   .hero {
     min-height: 520px;
-    padding: 70px 60px;
+    padding: 70px 40px;
   }
 
   .hero h1 {
@@ -25,20 +42,47 @@
 
   .moving-cycle {
     font-size: 75px;
-    margin: 35px auto 15px;
   }
 
   .playlist {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 25px;
+    max-width: 950px;
+    margin: 35px auto;
   }
 
   .youtube-wrap iframe {
-    height: 500px;
+    width: 100%;
+    height: 520px;
   }
 
   footer {
     padding: 35px;
+  }
+}
+
+
+/* ===== PHONE ===== */
+
+@media (max-width: 767px) {
+
+  .phone {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    min-height: 450px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero h1 span {
+    font-size: 30px;
+  }
+
+  .youtube-wrap iframe {
+    height: 300px;
   }
 }
