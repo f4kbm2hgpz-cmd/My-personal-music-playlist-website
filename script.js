@@ -1,21 +1,25 @@
-const playlistId = "PLlBTRvaC0XtKnzRLR5m7dc1S58gk_nZJ_";
+let player;
 
-document.addEventListener("DOMContentLoaded", () => {
-  const player = document.createElement("div");
+function onYouTubeIframeAPIReady() {
+  const iframe = document.querySelector(".youtube-wrap iframe");
 
-  player.innerHTML = `
-    <div style="margin:20px auto; max-width:700px;">
-      <iframe
-        width="100%"
-        height="380"
-        src="https://www.youtube.com/embed/videoseries?list=${playlistId}"
-        title="Samajwadi Playlist"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-    </div>
-  `;
+  if (!iframe) return;
 
-  document.body.appendChild(player);
-});
+  player = new YT.Player(iframe, {
+    events: {
+      onReady: function () {
+        const playBtn = document.getElementById("playBtn");
+
+        if (playBtn) {
+          playBtn.addEventListener("click", function () {
+            player.playVideo();
+          });
+        }
+      }
+    }
+  });
+}
+
+const tag = document.createElement("script");
+tag.src = "https://www.youtube.com/iframe_api";
+document.head.appendChild(tag);
