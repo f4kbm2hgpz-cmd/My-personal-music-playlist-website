@@ -7,7 +7,6 @@
 <title>PDA Mission 2027</title>
 
 <style>
-
 *{
   box-sizing:border-box;
   margin:0;
@@ -17,15 +16,16 @@
 body{
   font-family:Arial,sans-serif;
   background:#070707;
-  color:white;
+  color:#fff;
+  min-height:100vh;
 }
 
 .topbar{
   height:70px;
   padding:0 6%;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   background:#0b0b0b;
   border-bottom:1px solid #222;
 }
@@ -42,11 +42,11 @@ body{
 }
 
 .hero{
-  min-height:440px;
+  min-height:430px;
   padding:60px 20px;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
 
   background:
@@ -118,8 +118,8 @@ h1 span{
 }
 
 .music-heading p{
-  margin-top:8px;
   color:#777;
+  margin-top:8px;
 }
 
 .player{
@@ -144,7 +144,7 @@ h1 span{
 
 .song-title{
   text-align:center;
-  font-size:19px;
+  font-size:20px;
   font-weight:bold;
   line-height:1.4;
 }
@@ -163,8 +163,8 @@ audio{
 
 .controls{
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   gap:20px;
 }
 
@@ -176,7 +176,6 @@ audio{
   background:#222;
   color:white;
   font-size:19px;
-  cursor:pointer;
 }
 
 .play-button{
@@ -187,7 +186,6 @@ audio{
   background:white;
   color:black;
   font-size:24px;
-  cursor:pointer;
 }
 
 .counter{
@@ -197,10 +195,10 @@ audio{
   margin-top:17px;
 }
 
-#error{
+.error{
   display:none;
-  text-align:center;
   margin-top:15px;
+  text-align:center;
   color:#ff8585;
   font-size:13px;
 }
@@ -219,13 +217,8 @@ footer small{
 }
 
 @media(max-width:600px){
-
   .topbar{
     padding:0 20px;
-  }
-
-  .hero{
-    min-height:420px;
   }
 
   .music{
@@ -237,31 +230,18 @@ footer small{
   }
 
   .song-title{
-    font-size:17px;
+    font-size:18px;
   }
-
 }
-
 </style>
 </head>
 
-
 <body>
 
-
 <header class="topbar">
-
-  <div class="brand">
-    PDA 🚲
-  </div>
-
-  <div class="mission">
-    MISSION 2027
-  </div>
-
+  <div class="brand">PDA 🚲</div>
+  <div class="mission">MISSION 2027</div>
 </header>
-
-
 
 <section class="hero">
 
@@ -285,11 +265,9 @@ footer small{
     </div>
 
     <div class="info-box">
-
       <p id="workText">
         1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन
       </p>
-
     </div>
 
   </div>
@@ -297,19 +275,11 @@ footer small{
 </section>
 
 
-
 <section class="music">
 
   <div class="music-heading">
-
-    <h2>
-      🎵 Mission 2027 Music
-    </h2>
-
-    <p>
-      अपनी पसंद का गाना सुनें
-    </p>
-
+    <h2>🎵 Mission 2027 Music</h2>
+    <p>अपनी पसंद का गाना सुनें</p>
   </div>
 
 
@@ -319,19 +289,15 @@ footer small{
       🎵
     </div>
 
-
     <div class="song-title" id="songTitle">
-      Akhilesh Yadav - Kaam Bolta Hai
+      Mission 2027 Song
     </div>
-
 
     <div class="song-number" id="songNumber">
       Song 1
     </div>
 
-
     <audio id="audioPlayer" controls></audio>
-
 
     <div class="controls">
 
@@ -339,16 +305,9 @@ footer small{
         ⏮
       </button>
 
-
-      <button
-        class="play-button"
-        id="playButton"
-        onclick="togglePlay()">
-
+      <button class="play-button" id="playButton" onclick="togglePlay()">
         ▶
-
       </button>
-
 
       <button class="control" onclick="nextSong()">
         ⏭
@@ -356,14 +315,12 @@ footer small{
 
     </div>
 
-
     <div class="counter" id="counter">
-      1 / 8
+      1 / 10
     </div>
 
-
-    <div id="error">
-      ⚠️ यह MP3 file load नहीं हो पाई।
+    <div class="error" id="error">
+      ⚠️ MP3 file load नहीं हो पाई।
     </div>
 
   </div>
@@ -371,123 +328,70 @@ footer small{
 </section>
 
 
-
 <footer>
-
   PDA • Mission 2027
-
-  <small>
-    Created by Pranjul Yadav
-  </small>
-
+  <small>Created by Pranjul Yadav</small>
 </footer>
-
 
 
 <script>
 
-
-/* =========================
-   8 SONG FILES
-========================= */
-
-
 const songs = [
-
-{
-file:"Akhilesh%20Yadav's%20campaign%20video-%20Kaam%20Bolta%20Hai%20-%20Dimple%20Yadav%20(128k).mp3",
-name:"Akhilesh Yadav - Kaam Bolta Hai"
-},
-
-{
-file:"Cycle%20Chalegi%20Up%20Mai%20Gagan%20Fouji%20New%20Samajwadi%20Song%20Mission%202027%20%23akhileshyadavsong%20-%20BAJWA%20MUSIC%20(128k).mp3",
-name:"Cycle Chalegi UP Mein - Gagan Fouji"
-},
-
-{
-file:"Mein%20Akhilesh%20Ka%20Fan%20Hu%20Song%20Kalu%20Yadav%20Sorkha%20Samajwadi%20Party%20Akhilesh%20Yadav%20Song%20Yadav%20Song%20-%20Risky%20Music%20(128k).mp3",
-name:"Mein Akhilesh Ka Fan Hu - Kalu Yadav"
-},
-
-{
-file:"PDA%20Ke%20Mahanayak%20Kalu%20Yadav%20Sorkha%20Akhilesh%20Wazidpuria%20Samajwadi%20Party%20Song%202027%20-%20Kalu%20Yadav%20Sorkha%20(128k).mp3",
-name:"PDA Ke Mahanayak - Kalu Yadav"
-},
-
-{
-file:"Samajwadi%20Party%20ThemeSong%20Akhilesh%20Yadav%20Mulayam%20Singh%20Yadav%20Samajwadi%20Party%20Support%20Samajwad%20-%20Support%20Samajwad%20(128k).mp3",
-name:"Samajwadi Party Theme Song"
-},
-
-{
-file:"Samajwadi%20Prahari%20-%20Janta%20Pukarti%20Hai%20Akhilesh%20Aaiye%20-%20SamajwadiPrahariVEVO%20(128k).mp3",
-name:"Samajwadi Prahari - Janta Pukarti Hai Akhilesh Aaiye"
-},
-
-{
-file:"Up%20Me%20Cycle%20Hi%20Chalegi%20_Risky%20Yadav%20Akhilesh%20Yadav%20Song%202027%20Samajwadi%20Party%20Kalu%20Yadav%20Sorkha%20-%20Risky%20Music%20(128k).mp3",
-name:"UP Me Cycle Hi Chalegi - Risky Yadav"
-},
-
-{
-file:"VIDEO%20-%20%E0%A4%B8%E0%A4%AA%E0%A4%BE%20%E0%A4%86%E0%A4%88%20%E0%A4%B0%E0%A5%87%20-%20Samar%20Singh%20-%20Sapa%20Aai%20Re%20-%20Akhilesh%20Yadav%20-%20Samajwadi%20Party%20Song%202022%20-%20Samar%20Singh%20Official%20(128k).mp3",
-name:"Sapa Aai Re - Samar Singh"
-}
-
+  "song1.mp3",
+  "song2.mp3",
+  "song3.mp3",
+  "song4.mp3",
+  "song5.mp3",
+  "song6.mp3",
+  "song7.mp3",
+  "song8.mp3",
+  "song9.mp3",
+  "song10.mp3"
 ];
 
+const names = [
+  "Akhilesh Yadav - Kaam Bolta Hai",
+  "Cycle Chalegi UP Mein",
+  "Mein Akhilesh Ka Fan Hu",
+  "PDA Ke Mahanayak",
+  "Samajwadi Party Theme Song",
+  "Samajwadi Prahari",
+  "UP Me Cycle Hi Chalegi",
+  "Sapa Aai Re",
+  "Mission 2027 Song 9",
+  "Mission 2027 Song 10"
+];
 
-let currentSong=0;
+let currentSong = 0;
 
+const audio = document.getElementById("audioPlayer");
+const title = document.getElementById("songTitle");
+const number = document.getElementById("songNumber");
+const counter = document.getElementById("counter");
+const playButton = document.getElementById("playButton");
+const error = document.getElementById("error");
 
-const audio=document.getElementById("audioPlayer");
-
-const title=document.getElementById("songTitle");
-
-const number=document.getElementById("songNumber");
-
-const counter=document.getElementById("counter");
-
-const playButton=document.getElementById("playButton");
-
-const error=document.getElementById("error");
-
-
-
-/* LOAD SONG */
 
 function loadSong(index){
 
-  currentSong=index;
+  currentSong = index;
 
-  title.textContent=
-    songs[index].name;
+  title.textContent = names[index];
 
-  number.textContent=
-    "Song "+(index+1);
+  number.textContent = "Song " + (index + 1);
 
-  counter.textContent=
-    (index+1)+" / "+songs.length;
+  counter.textContent =
+    (index + 1) + " / " + songs.length;
 
-  /*
-    IMPORTANT:
-    Filename exactly as provided
-  */
-
-  audio.src=
-    "mp3/"+songs[index].file;
+  audio.src = "mp3/" + songs[index];
 
   audio.load();
 
-  error.style.display="none";
+  error.style.display = "none";
 
-  playButton.textContent="▶";
-
+  playButton.textContent = "▶";
 }
 
-
-
-/* PLAY */
 
 function togglePlay(){
 
@@ -495,167 +399,123 @@ function togglePlay(){
 
     audio.play()
     .then(function(){
-
-      playButton.textContent="❚❚";
-
+      playButton.textContent = "❚❚";
     })
     .catch(function(){
-
-      error.style.display="block";
-
+      error.style.display = "block";
     });
 
-  }
-
-  else{
+  }else{
 
     audio.pause();
 
-    playButton.textContent="▶";
-
+    playButton.textContent = "▶";
   }
-
 }
 
-
-
-/* NEXT */
 
 function nextSong(){
 
   currentSong++;
 
-  if(currentSong>=songs.length){
-
-    currentSong=0;
-
+  if(currentSong >= songs.length){
+    currentSong = 0;
   }
 
   loadSong(currentSong);
 
   audio.play()
   .then(function(){
-
-    playButton.textContent="❚❚";
-
+    playButton.textContent = "❚❚";
   })
   .catch(function(){
-
-    error.style.display="block";
-
+    error.style.display = "block";
   });
-
 }
 
-
-
-/* PREVIOUS */
 
 function previousSong(){
 
   currentSong--;
 
-  if(currentSong<0){
-
-    currentSong=songs.length-1;
-
+  if(currentSong < 0){
+    currentSong = songs.length - 1;
   }
 
   loadSong(currentSong);
 
   audio.play()
   .then(function(){
-
-    playButton.textContent="❚❚";
-
+    playButton.textContent = "❚❚";
   })
   .catch(function(){
-
-    error.style.display="block";
-
+    error.style.display = "block";
   });
-
 }
 
 
-
-/* AUTO NEXT */
-
-audio.addEventListener(
-  "ended",
-  function(){
-
-    nextSong();
-
-  }
-);
+audio.addEventListener("ended", function(){
+  nextSong();
+});
 
 
-
-/* ERROR */
-
-audio.addEventListener(
-  "error",
-  function(){
-
-    error.style.display="block";
-
-  }
-);
+audio.addEventListener("error", function(){
+  error.style.display = "block";
+});
 
 
+audio.addEventListener("play", function(){
+  playButton.textContent = "❚❚";
+});
 
-/* FIRST SONG */
+
+audio.addEventListener("pause", function(){
+  playButton.textContent = "▶";
+});
+
 
 loadSong(0);
 
 
-
 /* HERO TEXT */
 
-const works=[
+const works = [
 
-"1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन",
+  "1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन",
 
-"लखनऊ मेट्रो — शहरी परिवहन परियोजना",
+  "लखनऊ मेट्रो — शहरी परिवहन परियोजना",
 
-"आगरा-लखनऊ एक्सप्रेसवे — 302 किलोमीटर का एक्सप्रेसवे",
+  "आगरा-लखनऊ एक्सप्रेसवे — 302 किलोमीटर का एक्सप्रेसवे",
 
-"किसान बाज़ार — किसानों से जुड़ी बाजार व्यवस्था",
+  "किसान बाज़ार — किसानों से जुड़ी बाजार व्यवस्था",
 
-"लोहिया आवास योजना — ग्रामीण आवास से जुड़ी योजना",
+  "लोहिया आवास योजना — ग्रामीण आवास से जुड़ी योजना",
 
-"108 आपातकालीन एम्बुलेंस सेवा — स्वास्थ्य सेवा"
+  "108 आपातकालीन एम्बुलेंस सेवा — स्वास्थ्य सेवा"
 
 ];
 
-
-let currentWork=0;
-
+let currentWork = 0;
 
 setInterval(function(){
 
-  const text=
-    document.getElementById("workText");
+  const text = document.getElementById("workText");
 
-  text.style.opacity="0";
-
+  text.style.opacity = "0";
 
   setTimeout(function(){
 
-    currentWork=
-      (currentWork+1)%works.length;
+    currentWork =
+      (currentWork + 1) % works.length;
 
-    text.textContent=
+    text.textContent =
       works[currentWork];
 
-    text.style.opacity="1";
+    text.style.opacity = "1";
 
   },400);
 
-
 },3500);
-
 
 </script>
 
