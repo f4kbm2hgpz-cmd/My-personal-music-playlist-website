@@ -1,950 +1,562 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>PDA Mission 2027</title>
-
-  <style>
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #070707;
-      color: white;
-      min-height: 100vh;
-    }
-
-    /* TOP BAR */
-
-    .topbar {
-      height: 70px;
-      padding: 0 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      background: rgba(8,8,8,.9);
-
-      border-bottom: 1px solid rgba(255,255,255,.08);
-
-      position: sticky;
-      top: 0;
-      z-index: 10;
-
-      backdrop-filter: blur(18px);
-    }
-
-    .brand {
-      font-size: 23px;
-      font-weight: 900;
-    }
-
-    .mission {
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: #aaa;
-      font-weight: bold;
-    }
-
-
-    /* HERO */
-
-    .hero {
-      min-height: 500px;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      text-align: center;
-
-      padding: 70px 20px;
-
-      background:
-        radial-gradient(
-          circle at 15% 20%,
-          rgba(255,0,0,.22),
-          transparent 35%
-        ),
-
-        radial-gradient(
-          circle at 85% 75%,
-          rgba(0,255,100,.14),
-          transparent 35%
-        ),
-
-        #070707;
-    }
-
-    .hero-content {
-      max-width: 850px;
-    }
-
-    .label {
-      display: inline-block;
-
-      padding: 9px 18px;
-
-      border-radius: 50px;
-
-      background: rgba(255,255,255,.05);
-
-      border: 1px solid rgba(255,255,255,.12);
-
-      color: #aaa;
-
-      font-size: 12px;
-
-      letter-spacing: 2px;
-
-      margin-bottom: 25px;
-    }
-
-    h1 {
-      font-size: clamp(42px,8vw,82px);
-
-      line-height: 1.05;
-
-      font-weight: 900;
-    }
-
-    h1 span {
-      display: block;
-
-      margin-top: 10px;
-    }
-
-    .subtitle {
-      margin-top: 22px;
-
-      color: #999;
-
-      font-size: 17px;
-    }
-
-    .cycle {
-      font-size: 65px;
-
-      margin: 25px 0;
-
-      animation:
-        float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-
-      0%,100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-10px);
-      }
-
-    }
-
-    .info-box {
-
-      display: inline-block;
-
-      max-width: 650px;
-
-      padding: 16px 22px;
-
-      border-radius: 16px;
-
-      background: rgba(255,255,255,.05);
-
-      border:
-        1px solid rgba(255,255,255,.1);
-
-      color: #ddd;
-    }
-
-    #workText {
-      transition: opacity .4s;
-    }
-
-
-    /* MUSIC SECTION */
-
-    .music {
-
-      width: min(650px,92%);
-
-      margin:
-        40px auto 90px;
-    }
-
-    .music-heading {
-
-      text-align: center;
-
-      margin-bottom: 25px;
-    }
-
-    .music-heading h2 {
-
-      font-size: 30px;
-    }
-
-    .music-heading p {
-
-      margin-top: 8px;
-
-      color: #777;
-    }
-
-
-    /* PLAYER */
-
-    .player {
-
-      padding: 24px;
-
-      border-radius: 26px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #191919,
-          #0b0b0b
-        );
-
-      border:
-        1px solid rgba(255,255,255,.1);
-
-      box-shadow:
-        0 30px 80px
-        rgba(0,0,0,.55);
-    }
-
-
-    /* SMALL LONG MUSIC BOX */
-
-    .cover {
-
-      width: 100%;
-
-      height: 115px;
-
-      margin:
-        0 auto 22px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      border-radius: 22px;
-
-      font-size: 48px;
-
-      background:
-
-        radial-gradient(
-          circle at 20% 30%,
-          #383838,
-          transparent 35%
-        ),
-
-        linear-gradient(
-          135deg,
-          #242424,
-          #090909
-        );
-
-      border:
-        1px solid rgba(255,255,255,.12);
-
-      box-shadow:
-        0 15px 45px
-        rgba(0,0,0,.45);
-    }
-
-
-    .song-title {
-
-      text-align: center;
-
-      font-size: 22px;
-
-      font-weight: 800;
-    }
-
-
-    .song-number {
-
-      text-align: center;
-
-      margin-top: 7px;
-
-      color: #777;
-
-      font-size: 13px;
-    }
-
-
-    audio {
-
-      width: 100%;
-
-      margin:
-        22px 0;
-    }
-
-
-    /* CONTROLS */
-
-    .controls {
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
-      gap: 20px;
-    }
-
-
-    .control {
-
-      width: 55px;
-
-      height: 55px;
-
-      border: none;
-
-      border-radius: 50%;
-
-      cursor: pointer;
-
-      background: #222;
-
-      color: white;
-
-      font-size: 19px;
-
-      border:
-        1px solid rgba(255,255,255,.1);
-    }
-
-
-    .control:hover {
-
-      background: #333;
-    }
-
-
-    .play-button {
-
-      width: 68px;
-
-      height: 68px;
-
-      border: none;
-
-      border-radius: 50%;
-
-      background: white;
-
-      color: black;
-
-      font-size: 24px;
-
-      cursor: pointer;
-
-      box-shadow:
-        0 10px 35px
-        rgba(255,255,255,.12);
-    }
-
-
-    .counter {
-
-      text-align: center;
-
-      margin-top: 18px;
-
-      color: #666;
-
-      font-size: 12px;
-    }
-
-
-    /* FOOTER */
-
-    footer {
-
-      text-align: center;
-
-      padding: 35px 20px;
-
-      color: #777;
-
-      border-top:
-        1px solid rgba(255,255,255,.07);
-    }
-
-    footer small {
-
-      display: block;
-
-      margin-top: 8px;
-
-      color: #555;
-    }
-
-
-    /* MOBILE */
-
-    @media(max-width:600px) {
-
-      .topbar {
-
-        padding:
-          0 20px;
-      }
-
-      .hero {
-
-        min-height: 460px;
-
-        padding:
-          55px 18px;
-      }
-
-      .music {
-
-        width: 94%;
-      }
-
-      .player {
-
-        padding: 18px;
-
-        border-radius: 22px;
-      }
-
-      .cover {
-
-        height: 95px;
-
-        border-radius: 18px;
-
-        font-size: 40px;
-      }
-
-      .song-title {
-
-        font-size: 20px;
-      }
-
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDA Mission 2027</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#070707;
+  color:#fff;
+  min-height:100vh;
+}
+
+.topbar{
+  height:70px;
+  padding:0 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(8,8,8,.9);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(18px);
+}
+
+.brand{
+  font-size:23px;
+  font-weight:900;
+}
+
+.mission{
+  font-size:12px;
+  letter-spacing:2px;
+  color:#aaa;
+  font-weight:bold;
+}
+
+.hero{
+  min-height:480px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:65px 20px;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(255,0,0,.22),transparent 35%),
+    radial-gradient(circle at 85% 75%,rgba(0,255,100,.14),transparent 35%),
+    #070707;
+}
+
+.hero-content{
+  max-width:850px;
+}
+
+.label{
+  display:inline-block;
+  padding:9px 18px;
+  border-radius:50px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);
+  color:#aaa;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-bottom:25px;
+}
+
+h1{
+  font-size:clamp(42px,8vw,82px);
+  line-height:1.05;
+  font-weight:900;
+}
+
+h1 span{
+  display:block;
+  margin-top:10px;
+}
+
+.subtitle{
+  margin-top:22px;
+  color:#999;
+  font-size:17px;
+}
+
+.cycle{
+  font-size:65px;
+  margin:25px 0;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+.info-box{
+  display:inline-block;
+  max-width:650px;
+  padding:16px 22px;
+  border-radius:16px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  color:#ddd;
+}
+
+#workText{
+  transition:opacity .4s;
+}
+
+.music{
+  width:min(650px,92%);
+  margin:40px auto 90px;
+}
+
+.music-heading{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.music-heading h2{
+  font-size:30px;
+}
+
+.music-heading p{
+  margin-top:8px;
+  color:#777;
+}
+
+.player{
+  padding:24px;
+  border-radius:26px;
+  background:linear-gradient(145deg,#191919,#0b0b0b);
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+}
+
+.cover{
+  width:100%;
+  height:115px;
+  margin:0 auto 22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:22px;
+  font-size:48px;
+  background:
+    radial-gradient(circle at 20% 30%,#383838,transparent 35%),
+    linear-gradient(135deg,#242424,#090909);
+  border:1px solid rgba(255,255,255,.12);
+}
+
+.song-title{
+  text-align:center;
+  font-size:20px;
+  font-weight:800;
+  line-height:1.4;
+}
+
+.song-number{
+  text-align:center;
+  margin-top:7px;
+  color:#777;
+  font-size:13px;
+}
+
+audio{
+  width:100%;
+  margin:22px 0;
+}
+
+.controls{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+}
+
+.control{
+  width:55px;
+  height:55px;
+  border:none;
+  border-radius:50%;
+  cursor:pointer;
+  background:#222;
+  color:white;
+  font-size:19px;
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.play-button{
+  width:68px;
+  height:68px;
+  border:none;
+  border-radius:50%;
+  background:white;
+  color:black;
+  font-size:24px;
+  cursor:pointer;
+}
+
+.counter{
+  text-align:center;
+  margin-top:18px;
+  color:#666;
+  font-size:12px;
+}
+
+footer{
+  text-align:center;
+  padding:35px 20px;
+  color:#777;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+
+footer small{
+  display:block;
+  margin-top:8px;
+  color:#555;
+}
+
+@media(max-width:600px){
+
+  .topbar{
+    padding:0 20px;
+  }
+
+  .hero{
+    min-height:450px;
+    padding:55px 18px;
+  }
+
+  .music{
+    width:94%;
+  }
+
+  .player{
+    padding:18px;
+    border-radius:22px;
+  }
+
+  .cover{
+    height:95px;
+    border-radius:18px;
+    font-size:40px;
+  }
+
+  .song-title{
+    font-size:18px;
+  }
+}
+</style>
 </head>
-
 
 <body>
 
-
 <header class="topbar">
-
-  <div class="brand">
-    PDA 🚲
-  </div>
-
-  <div class="mission">
-    MISSION 2027
-  </div>
-
+  <div class="brand">PDA 🚲</div>
+  <div class="mission">MISSION 2027</div>
 </header>
-
 
 <main>
 
-
-<!-- HERO -->
-
 <section class="hero">
 
-  <div class="hero-content">
+<div class="hero-content">
 
+<div class="label">
+PDA • MISSION 2027
+</div>
 
-    <div class="label">
-      PDA • MISSION 2027
-    </div>
+<h1>
+समाजवादी पार्टी
+<span>🚲 2027</span>
+</h1>
 
+<p class="subtitle">
+अपनी playlist • अपना music • अपना page
+</p>
 
-    <h1>
+<div class="cycle">
+🚲
+</div>
 
-      समाजवादी पार्टी
+<div class="info-box">
+<p id="workText">
+1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन
+</p>
+</div>
 
-      <span>
-        🚲 2027
-      </span>
-
-    </h1>
-
-
-    <p class="subtitle">
-
-      अपनी playlist • अपना music • अपना page
-
-    </p>
-
-
-    <div class="cycle">
-
-      🚲
-
-    </div>
-
-
-    <div class="info-box">
-
-      <p id="workText">
-
-        1090 महिला शक्ति लाइन —
-        महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन
-
-      </p>
-
-    </div>
-
-
-  </div>
+</div>
 
 </section>
 
-
-
-<!-- MUSIC -->
 
 <section class="music">
 
+<div class="music-heading">
 
-  <div class="music-heading">
+<h2>🎵 Mission 2027 Music</h2>
 
-    <h2>
-      🎵 Mission 2027 Music
-    </h2>
+<p>अपनी पसंद का गाना सुनें</p>
 
-    <p>
-      अपनी पसंद का गाना सुनें
-    </p>
-
-  </div>
+</div>
 
 
+<div class="player">
 
-  <div class="player">
+<div class="cover">
+🎵
+</div>
 
+<div class="song-title" id="songTitle">
+Akhilesh Yadav - Kaam Bolta Hai
+</div>
 
-    <!-- RECTANGLE MUSIC BOX -->
+<div class="song-number" id="songNumber">
+Song 1
+</div>
 
-    <div class="cover">
-
-      🎵
-
-    </div>
-
-
-    <div
-      class="song-title"
-      id="songTitle">
-
-      PDA Song 01
-
-    </div>
+<audio id="audioPlayer" controls></audio>
 
 
-    <div
-      class="song-number"
-      id="songNumber">
+<div class="controls">
 
-      Song 1
+<button class="control" onclick="previousSong()">
+⏮
+</button>
 
-    </div>
+<button class="play-button" id="playButton" onclick="togglePlay()">
+▶
+</button>
 
+<button class="control" onclick="nextSong()">
+⏭
+</button>
 
-    <audio
-      id="audioPlayer"
-      controls>
-    </audio>
+</div>
 
+<div class="counter" id="counter">
+1 / 8
+</div>
 
-
-    <div class="controls">
-
-
-      <button
-        class="control"
-        onclick="previousSong()">
-
-        ⏮
-
-      </button>
-
-
-      <button
-        class="play-button"
-        id="playButton"
-        onclick="togglePlay()">
-
-        ▶
-
-      </button>
-
-
-      <button
-        class="control"
-        onclick="nextSong()">
-
-        ⏭
-
-      </button>
-
-
-    </div>
-
-
-    <div
-      class="counter"
-      id="counter">
-
-      1 / 20
-
-    </div>
-
-
-  </div>
+</div>
 
 </section>
-
 
 </main>
 
 
-
 <footer>
-
-  PDA • Mission 2027
-
-  <small>
-    Created by Pranjul Yadav
-  </small>
-
+PDA • Mission 2027
+<small>Created by Pranjul Yadav</small>
 </footer>
-
 
 
 <script>
 
-
-/* MP3 FILES */
+/* =========================
+   YOUR 8 MP3 FILES
+   ========================= */
 
 const songs = [
 
-  "song1.mp3",
-  "song2.mp3",
-  "song3.mp3",
-  "song4.mp3",
-  "song5.mp3",
-  "song6.mp3",
-  "song7.mp3",
-  "song8.mp3",
-  "song9.mp3",
-  "song10.mp3",
-  "song11.mp3",
-  "song12.mp3",
-  "song13.mp3",
-  "song14.mp3",
-  "song15.mp3",
-  "song16.mp3",
-  "song17.mp3",
-  "song18.mp3",
-  "song19.mp3",
-  "song20.mp3"
+"Akhilesh%20Yadav's%20campaign%20video-%20Kaam%20Bolta%20Hai%20-%20Dimple%20Yadav%20(128k).mp3",
+
+"Cycle%20Chalegi%20Up%20Mai%20Gagan%20Fouji%20New%20Samajwadi%20Song%20Mission%202027%20%23akhileshyadavsong%20-%20BAJWA%20MUSIC%20(128k).mp3",
+
+"Mein%20Akhilesh%20Ka%20Fan%20Hu%20Song%20Kalu%20Yadav%20Sorkha%20Samajwadi%20Party%20Akhilesh%20Yadav%20Song%20Yadav%20Song%20-%20Risky%20Music%20(128k).mp3",
+
+"PDA%20Ke%20Mahanayak%20Kalu%20Yadav%20Sorkha%20Akhilesh%20Wazidpuria%20Samajwadi%20Party%20Song%202027%20-%20Kalu%20Yadav%20Sorkha%20(128k).mp3",
+
+"Samajwadi%20Party%20ThemeSong%20Akhilesh%20Yadav%20Mulayam%20Singh%20Yadav%20Samajwadi%20Party%20Support%20Samajwad%20-%20Support%20Samajwad%20(128k).mp3",
+
+"Samajwadi%20Prahari%20-%20Janta%20Pukarti%20Hai%20Akhilesh%20Aaiye%20-%20SamajwadiPrahariVEVO%20(128k).mp3",
+
+"Up%20Me%20Cycle%20Hi%20Chalegi%20_Risky%20Yadav%20Akhilesh%20Yadav%20Song%202027%20Samajwadi%20Party%20Kalu%20Yadav%20Sorkha%20-%20Risky%20Music%20(128k).mp3",
+
+"VIDEO%20-%20%E0%A4%B8%E0%A4%AA%E0%A4%BE%20%E0%A4%86%E0%A4%88%20%E0%A4%B0%E0%A5%87%20-%20Samar%20Singh%20-%20Sapa%20Aai%20Re%20-%20Akhilesh%20Yadav%20-%20Samajwadi%20Party%20Song%202022%20-%20Samar%20Singh%20Official%20(128k).mp3"
+
+];
+
+
+const songNames = [
+
+"Akhilesh Yadav - Kaam Bolta Hai",
+
+"Cycle Chalegi UP Mein - Gagan Fouji",
+
+"Mein Akhilesh Ka Fan Hu - Kalu Yadav",
+
+"PDA Ke Mahanayak - Kalu Yadav",
+
+"Samajwadi Party Theme Song",
+
+"Samajwadi Prahari - Janta Pukarti Hai Akhilesh Aaiye",
+
+"UP Me Cycle Hi Chalegi - Risky Yadav",
+
+"Sapa Aai Re - Samar Singh"
 
 ];
 
 
 let currentSong = 0;
 
-
 const audio =
-  document.getElementById(
-    "audioPlayer"
-  );
-
+document.getElementById("audioPlayer");
 
 const title =
-  document.getElementById(
-    "songTitle"
-  );
-
+document.getElementById("songTitle");
 
 const number =
-  document.getElementById(
-    "songNumber"
-  );
-
+document.getElementById("songNumber");
 
 const counter =
-  document.getElementById(
-    "counter"
-  );
-
+document.getElementById("counter");
 
 const playButton =
-  document.getElementById(
-    "playButton"
-  );
+document.getElementById("playButton");
 
 
+function loadSong(index,autoPlay=false){
 
-/* LOAD */
+currentSong=index;
 
-function loadSong(
-  index,
-  autoPlay = false
-) {
+audio.src="mp3/"+songs[currentSong];
 
-  currentSong = index;
+title.textContent=songNames[currentSong];
 
+number.textContent="Song "+(currentSong+1);
 
-  audio.src =
-    "mp3/" +
-    songs[currentSong];
+counter.textContent=(currentSong+1)+" / "+songs.length;
 
+if(autoPlay){
 
-  title.textContent =
-    songs[currentSong]
-      .replace(".mp3","")
-      .replace(/[_-]/g," ");
+audio.play();
 
+playButton.textContent="❚❚";
 
-  number.textContent =
-    "Song " +
-    (currentSong + 1);
+}else{
 
+playButton.textContent="▶";
 
-  counter.textContent =
-    (currentSong + 1) +
-    " / " +
-    songs.length;
-
-
-  if(autoPlay) {
-
-    audio.play();
-
-    playButton.textContent =
-      "❚❚";
-
-  }
-
-  else {
-
-    playButton.textContent =
-      "▶";
-
-  }
+}
 
 }
 
 
+function togglePlay(){
 
-/* PLAY */
+if(audio.paused){
 
-function togglePlay() {
+audio.play();
 
-  if(audio.paused) {
+playButton.textContent="❚❚";
 
-    audio.play();
+}else{
 
-    playButton.textContent =
-      "❚❚";
+audio.pause();
 
-  }
+playButton.textContent="▶";
 
-  else {
-
-    audio.pause();
-
-    playButton.textContent =
-      "▶";
-
-  }
+}
 
 }
 
 
+function nextSong(){
 
-/* NEXT */
+currentSong++;
 
-function nextSong() {
+if(currentSong>=songs.length){
+currentSong=0;
+}
 
-  currentSong++;
-
-  if(
-    currentSong >=
-    songs.length
-  ) {
-
-    currentSong = 0;
-
-  }
-
-  loadSong(
-    currentSong,
-    true
-  );
+loadSong(currentSong,true);
 
 }
 
 
+function previousSong(){
 
-/* PREVIOUS */
+currentSong--;
 
-function previousSong() {
+if(currentSong<0){
+currentSong=songs.length-1;
+}
 
-  currentSong--;
-
-  if(
-    currentSong < 0
-  ) {
-
-    currentSong =
-      songs.length - 1;
-
-  }
-
-  loadSong(
-    currentSong,
-    true
-  );
+loadSong(currentSong,true);
 
 }
 
 
-
-/* AUTO NEXT */
-
-audio.addEventListener(
-  "ended",
-  function() {
-
-    nextSong();
-
-  }
-);
+audio.addEventListener("ended",function(){
+nextSong();
+});
 
 
-
-/* BUTTON */
-
-audio.addEventListener(
-  "play",
-  function() {
-
-    playButton.textContent =
-      "❚❚";
-
-  }
-);
+audio.addEventListener("play",function(){
+playButton.textContent="❚❚";
+});
 
 
-audio.addEventListener(
-  "pause",
-  function() {
+audio.addEventListener("pause",function(){
+playButton.textContent="▶";
+});
 
-    playButton.textContent =
-      "▶";
-
-  }
-);
-
-
-
-/* FIRST SONG */
 
 loadSong(0);
 
 
-
 /* HERO TEXT */
 
-const works = [
+const works=[
 
-  "1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन",
+"1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन",
 
-  "लखनऊ मेट्रो — शहरी परिवहन परियोजना",
+"लखनऊ मेट्रो — शहरी परिवहन परियोजना",
 
-  "आगरा-लखनऊ एक्सप्रेसवे — 302 किलोमीटर का एक्सप्रेसवे",
+"आगरा-लखनऊ एक्सप्रेसवे — 302 किलोमीटर का एक्सप्रेसवे",
 
-  "किसान बाज़ार — किसानों से जुड़ी बाजार व्यवस्था",
+"किसान बाज़ार — किसानों से जुड़ी बाजार व्यवस्था",
 
-  "लोहिया आवास योजना — ग्रामीण आवास से जुड़ी योजना",
+"लोहिया आवास योजना — ग्रामीण आवास से जुड़ी योजना",
 
-  "108 आपातकालीन एम्बुलेंस सेवा — स्वास्थ्य सेवा"
+"108 आपातकालीन एम्बुलेंस सेवा — स्वास्थ्य सेवा"
 
 ];
 
+let currentWork=0;
 
-let currentWork = 0;
+setInterval(()=>{
 
+const text=document.getElementById("workText");
 
-setInterval(() => {
+text.style.opacity="0";
 
+setTimeout(()=>{
 
-  const text =
-    document.getElementById(
-      "workText"
-    );
+currentWork=(currentWork+1)%works.length;
 
+text.textContent=works[currentWork];
 
-  text.style.opacity =
-    "0";
+text.style.opacity="1";
 
-
-  setTimeout(() => {
-
-
-    currentWork =
-      (
-        currentWork + 1
-      ) %
-      works.length;
-
-
-    text.textContent =
-      works[currentWork];
-
-
-    text.style.opacity =
-      "1";
-
-
-  },400);
-
+},400);
 
 },3500);
 
-
 </script>
-
 
 </body>
 </html>
