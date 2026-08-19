@@ -7,6 +7,7 @@
   <title>PDA Mission 2027</title>
 
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -28,11 +29,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(8,8,8,.88);
+
+      background: rgba(8,8,8,.9);
+
       border-bottom: 1px solid rgba(255,255,255,.08);
+
       position: sticky;
       top: 0;
       z-index: 10;
+
       backdrop-filter: blur(18px);
     }
 
@@ -48,19 +53,33 @@
       font-weight: bold;
     }
 
+
     /* HERO */
 
     .hero {
-      min-height: 510px;
+      min-height: 500px;
+
       display: flex;
       justify-content: center;
       align-items: center;
+
       text-align: center;
+
       padding: 70px 20px;
 
       background:
-        radial-gradient(circle at 15% 20%, rgba(255,0,0,.22), transparent 35%),
-        radial-gradient(circle at 85% 75%, rgba(0,255,100,.14), transparent 35%),
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(255,0,0,.22),
+          transparent 35%
+        ),
+
+        radial-gradient(
+          circle at 85% 75%,
+          rgba(0,255,100,.14),
+          transparent 35%
+        ),
+
         #070707;
     }
 
@@ -70,40 +89,57 @@
 
     .label {
       display: inline-block;
+
       padding: 9px 18px;
+
       border-radius: 50px;
+
       background: rgba(255,255,255,.05);
+
       border: 1px solid rgba(255,255,255,.12);
+
       color: #aaa;
+
       font-size: 12px;
+
       letter-spacing: 2px;
+
       margin-bottom: 25px;
     }
 
     h1 {
-      font-size: clamp(42px, 8vw, 82px);
+      font-size: clamp(42px,8vw,82px);
+
       line-height: 1.05;
+
       font-weight: 900;
     }
 
     h1 span {
       display: block;
+
       margin-top: 10px;
     }
 
     .subtitle {
       margin-top: 22px;
+
       color: #999;
+
       font-size: 17px;
     }
 
     .cycle {
-      font-size: 70px;
+      font-size: 65px;
+
       margin: 25px 0;
-      animation: float 3s ease-in-out infinite;
+
+      animation:
+        float 3s ease-in-out infinite;
     }
 
     @keyframes float {
+
       0%,100% {
         transform: translateY(0);
       }
@@ -111,15 +147,24 @@
       50% {
         transform: translateY(-10px);
       }
+
     }
 
     .info-box {
+
       display: inline-block;
+
       max-width: 650px;
+
       padding: 16px 22px;
+
       border-radius: 16px;
+
       background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.1);
+
+      border:
+        1px solid rgba(255,255,255,.1);
+
       color: #ddd;
     }
 
@@ -127,181 +172,291 @@
       transition: opacity .4s;
     }
 
-    /* MUSIC */
+
+    /* MUSIC SECTION */
 
     .music {
-      width: min(650px, 92%);
-      margin: 40px auto 90px;
+
+      width: min(650px,92%);
+
+      margin:
+        40px auto 90px;
     }
 
     .music-heading {
+
       text-align: center;
+
       margin-bottom: 25px;
     }
 
     .music-heading h2 {
+
       font-size: 30px;
     }
 
     .music-heading p {
+
       margin-top: 8px;
+
       color: #777;
     }
+
 
     /* PLAYER */
 
     .player {
-      padding: 30px;
-      border-radius: 30px;
+
+      padding: 24px;
+
+      border-radius: 26px;
+
       background:
-        linear-gradient(145deg,#191919,#0c0c0c);
-      border: 1px solid rgba(255,255,255,.1);
+        linear-gradient(
+          145deg,
+          #191919,
+          #0b0b0b
+        );
+
+      border:
+        1px solid rgba(255,255,255,.1);
+
       box-shadow:
-        0 30px 80px rgba(0,0,0,.55);
+        0 30px 80px
+        rgba(0,0,0,.55);
     }
+
+
+    /* SMALL LONG MUSIC BOX */
 
     .cover {
-      width: 190px;
-      height: 190px;
-      margin: 0 auto 25px;
 
-      display: grid;
-      place-items: center;
+      width: 100%;
 
-      border-radius: 28px;
+      height: 115px;
 
-      font-size: 80px;
+      margin:
+        0 auto 22px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 22px;
+
+      font-size: 48px;
 
       background:
-        radial-gradient(circle at 30% 25%,#333,transparent 40%),
-        linear-gradient(135deg,#202020,#080808);
 
-      border: 1px solid rgba(255,255,255,.12);
+        radial-gradient(
+          circle at 20% 30%,
+          #383838,
+          transparent 35%
+        ),
+
+        linear-gradient(
+          135deg,
+          #242424,
+          #090909
+        );
+
+      border:
+        1px solid rgba(255,255,255,.12);
 
       box-shadow:
-        0 20px 60px rgba(0,0,0,.5);
+        0 15px 45px
+        rgba(0,0,0,.45);
     }
 
+
     .song-title {
+
       text-align: center;
-      font-size: 23px;
+
+      font-size: 22px;
+
       font-weight: 800;
     }
 
+
     .song-number {
+
       text-align: center;
+
       margin-top: 7px;
+
       color: #777;
+
       font-size: 13px;
     }
 
+
     audio {
+
       width: 100%;
-      margin: 25px 0;
+
+      margin:
+        22px 0;
     }
 
-    /* BUTTONS */
+
+    /* CONTROLS */
 
     .controls {
+
       display: flex;
+
       justify-content: center;
+
       align-items: center;
+
       gap: 20px;
     }
 
+
     .control {
+
       width: 55px;
+
       height: 55px;
+
       border: none;
+
       border-radius: 50%;
+
       cursor: pointer;
 
       background: #222;
+
       color: white;
 
-      font-size: 20px;
+      font-size: 19px;
 
-      border: 1px solid rgba(255,255,255,.1);
+      border:
+        1px solid rgba(255,255,255,.1);
     }
 
+
     .control:hover {
+
       background: #333;
     }
 
+
     .play-button {
-      width: 70px;
-      height: 70px;
+
+      width: 68px;
+
+      height: 68px;
+
       border: none;
+
       border-radius: 50%;
 
       background: white;
+
       color: black;
 
-      font-size: 25px;
+      font-size: 24px;
+
       cursor: pointer;
 
-      box-shadow: 0 10px 35px rgba(255,255,255,.12);
+      box-shadow:
+        0 10px 35px
+        rgba(255,255,255,.12);
     }
 
+
     .counter {
+
       text-align: center;
-      margin-top: 20px;
+
+      margin-top: 18px;
+
       color: #666;
+
       font-size: 12px;
     }
+
 
     /* FOOTER */
 
     footer {
+
       text-align: center;
+
       padding: 35px 20px;
+
       color: #777;
-      border-top: 1px solid rgba(255,255,255,.07);
+
+      border-top:
+        1px solid rgba(255,255,255,.07);
     }
 
     footer small {
+
       display: block;
+
       margin-top: 8px;
+
       color: #555;
     }
+
 
     /* MOBILE */
 
     @media(max-width:600px) {
 
       .topbar {
-        padding: 0 20px;
+
+        padding:
+          0 20px;
       }
 
       .hero {
-        min-height: 470px;
-        padding: 55px 18px;
+
+        min-height: 460px;
+
+        padding:
+          55px 18px;
       }
 
       .music {
+
         width: 94%;
       }
 
       .player {
-        padding: 22px 17px;
-        border-radius: 24px;
+
+        padding: 18px;
+
+        border-radius: 22px;
       }
 
       .cover {
-        width: 160px;
-        height: 160px;
-        font-size: 65px;
+
+        height: 95px;
+
+        border-radius: 18px;
+
+        font-size: 40px;
       }
 
       .song-title {
+
         font-size: 20px;
       }
+
     }
+
   </style>
 </head>
 
 
 <body>
+
 
 <header class="topbar">
 
@@ -325,43 +480,65 @@
 
   <div class="hero-content">
 
+
     <div class="label">
       PDA • MISSION 2027
     </div>
 
+
     <h1>
+
       समाजवादी पार्टी
-      <span>🚲 2027</span>
+
+      <span>
+        🚲 2027
+      </span>
+
     </h1>
 
+
     <p class="subtitle">
+
       अपनी playlist • अपना music • अपना page
+
     </p>
 
+
     <div class="cycle">
+
       🚲
+
     </div>
+
 
     <div class="info-box">
 
       <p id="workText">
-        1090 महिला शक्ति लाइन — महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन
+
+        1090 महिला शक्ति लाइन —
+        महिलाओं की सुरक्षा से जुड़ी हेल्पलाइन
+
       </p>
 
     </div>
+
 
   </div>
 
 </section>
 
 
-<!-- MUSIC PLAYER -->
+
+<!-- MUSIC -->
 
 <section class="music">
 
+
   <div class="music-heading">
 
-    <h2>🎵 Mission 2027 Music</h2>
+    <h2>
+      🎵 Mission 2027 Music
+    </h2>
 
     <p>
       अपनी पसंद का गाना सुनें
@@ -370,24 +547,34 @@
   </div>
 
 
+
   <div class="player">
 
+
+    <!-- RECTANGLE MUSIC BOX -->
+
     <div class="cover">
+
       🎵
+
     </div>
 
 
     <div
       class="song-title"
       id="songTitle">
+
       PDA Song 01
+
     </div>
 
 
     <div
       class="song-number"
       id="songNumber">
+
       Song 1
+
     </div>
 
 
@@ -397,12 +584,16 @@
     </audio>
 
 
+
     <div class="controls">
+
 
       <button
         class="control"
         onclick="previousSong()">
+
         ⏮
+
       </button>
 
 
@@ -410,15 +601,20 @@
         class="play-button"
         id="playButton"
         onclick="togglePlay()">
+
         ▶
+
       </button>
 
 
       <button
         class="control"
         onclick="nextSong()">
+
         ⏭
+
       </button>
+
 
     </div>
 
@@ -426,8 +622,11 @@
     <div
       class="counter"
       id="counter">
+
       1 / 20
+
     </div>
+
 
   </div>
 
@@ -435,6 +634,7 @@
 
 
 </main>
+
 
 
 <footer>
@@ -448,11 +648,11 @@
 </footer>
 
 
+
 <script>
 
-/* =========================
-   MP3 SONG LIST
-   ========================= */
+
+/* MP3 FILES */
 
 const songs = [
 
@@ -484,59 +684,89 @@ let currentSong = 0;
 
 
 const audio =
-  document.getElementById("audioPlayer");
+  document.getElementById(
+    "audioPlayer"
+  );
+
 
 const title =
-  document.getElementById("songTitle");
+  document.getElementById(
+    "songTitle"
+  );
+
 
 const number =
-  document.getElementById("songNumber");
+  document.getElementById(
+    "songNumber"
+  );
+
 
 const counter =
-  document.getElementById("counter");
+  document.getElementById(
+    "counter"
+  );
+
 
 const playButton =
-  document.getElementById("playButton");
+  document.getElementById(
+    "playButton"
+  );
 
 
-/* LOAD SONG */
 
-function loadSong(index, autoPlay = false) {
+/* LOAD */
+
+function loadSong(
+  index,
+  autoPlay = false
+) {
 
   currentSong = index;
 
+
   audio.src =
-    "mp3/" + songs[currentSong];
+    "mp3/" +
+    songs[currentSong];
+
 
   title.textContent =
     songs[currentSong]
       .replace(".mp3","")
       .replace(/[_-]/g," ");
 
+
   number.textContent =
-    "Song " + (currentSong + 1);
+    "Song " +
+    (currentSong + 1);
+
 
   counter.textContent =
     (currentSong + 1) +
     " / " +
     songs.length;
 
+
   if(autoPlay) {
 
     audio.play();
 
-    playButton.textContent = "❚❚";
+    playButton.textContent =
+      "❚❚";
 
-  } else {
+  }
 
-    playButton.textContent = "▶";
+  else {
+
+    playButton.textContent =
+      "▶";
 
   }
 
 }
 
 
-/* PLAY / PAUSE */
+
+/* PLAY */
 
 function togglePlay() {
 
@@ -544,17 +774,22 @@ function togglePlay() {
 
     audio.play();
 
-    playButton.textContent = "❚❚";
+    playButton.textContent =
+      "❚❚";
 
-  } else {
+  }
+
+  else {
 
     audio.pause();
 
-    playButton.textContent = "▶";
+    playButton.textContent =
+      "▶";
 
   }
 
 }
+
 
 
 /* NEXT */
@@ -563,13 +798,22 @@ function nextSong() {
 
   currentSong++;
 
-  if(currentSong >= songs.length) {
+  if(
+    currentSong >=
+    songs.length
+  ) {
+
     currentSong = 0;
+
   }
 
-  loadSong(currentSong, true);
+  loadSong(
+    currentSong,
+    true
+  );
 
 }
+
 
 
 /* PREVIOUS */
@@ -578,38 +822,60 @@ function previousSong() {
 
   currentSong--;
 
-  if(currentSong < 0) {
-    currentSong = songs.length - 1;
+  if(
+    currentSong < 0
+  ) {
+
+    currentSong =
+      songs.length - 1;
+
   }
 
-  loadSong(currentSong, true);
+  loadSong(
+    currentSong,
+    true
+  );
 
 }
 
 
-/* AUTOMATIC NEXT */
 
-audio.addEventListener("ended", function() {
+/* AUTO NEXT */
 
-  nextSong();
+audio.addEventListener(
+  "ended",
+  function() {
 
-});
+    nextSong();
 
-
-/* UPDATE BUTTON */
-
-audio.addEventListener("play", function() {
-
-  playButton.textContent = "❚❚";
-
-});
+  }
+);
 
 
-audio.addEventListener("pause", function() {
 
-  playButton.textContent = "▶";
+/* BUTTON */
 
-});
+audio.addEventListener(
+  "play",
+  function() {
+
+    playButton.textContent =
+      "❚❚";
+
+  }
+);
+
+
+audio.addEventListener(
+  "pause",
+  function() {
+
+    playButton.textContent =
+      "▶";
+
+  }
+);
+
 
 
 /* FIRST SONG */
@@ -617,9 +883,8 @@ audio.addEventListener("pause", function() {
 loadSong(0);
 
 
-/* =========================
-   HERO TEXT
-   ========================= */
+
+/* HERO TEXT */
 
 const works = [
 
@@ -643,29 +908,43 @@ let currentWork = 0;
 
 setInterval(() => {
 
-  const text =
-    document.getElementById("workText");
 
-  text.style.opacity = "0";
+  const text =
+    document.getElementById(
+      "workText"
+    );
+
+
+  text.style.opacity =
+    "0";
 
 
   setTimeout(() => {
 
+
     currentWork =
-      (currentWork + 1) %
+      (
+        currentWork + 1
+      ) %
       works.length;
+
 
     text.textContent =
       works[currentWork];
 
-    text.style.opacity = "1";
+
+    text.style.opacity =
+      "1";
+
 
   },400);
 
 
 },3500);
 
+
 </script>
+
 
 </body>
 </html>
