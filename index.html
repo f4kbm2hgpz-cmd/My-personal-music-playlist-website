@@ -16,11 +16,10 @@
     body {
       font-family: Arial, sans-serif;
       background: #080808;
-      color: white;
+      color: #fff;
       min-height: 100vh;
     }
 
-    /* TOP BAR */
     .topbar {
       height: 70px;
       padding: 0 6%;
@@ -47,26 +46,26 @@
       opacity: .7;
     }
 
-    /* HERO */
     .hero {
       min-height: 520px;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
+      padding: 70px 20px;
       position: relative;
       overflow: hidden;
-      padding: 70px 20px;
+
       background:
-        radial-gradient(circle at 20% 20%, rgba(255,0,0,.20), transparent 35%),
-        radial-gradient(circle at 80% 70%, rgba(0,255,100,.14), transparent 35%),
+        radial-gradient(circle at 15% 20%, rgba(255,0,0,.22), transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(0,255,100,.15), transparent 35%),
         #080808;
     }
 
     .hero-content {
+      max-width: 850px;
       position: relative;
       z-index: 2;
-      max-width: 800px;
     }
 
     .label {
@@ -81,7 +80,7 @@
     }
 
     h1 {
-      font-size: clamp(42px, 8vw, 80px);
+      font-size: clamp(42px, 8vw, 82px);
       line-height: 1.05;
       font-weight: 900;
     }
@@ -100,18 +99,22 @@
     .cycle {
       font-size: 70px;
       margin: 25px 0;
-      filter: drop-shadow(0 0 25px rgba(255,255,255,.2));
       animation: float 3s ease-in-out infinite;
     }
 
     @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     .info-box {
       display: inline-block;
-      max-width: 600px;
+      max-width: 650px;
       padding: 16px 22px;
       border-radius: 16px;
       background: rgba(255,255,255,.06);
@@ -124,6 +127,7 @@
     }
 
     /* MUSIC */
+
     .music {
       width: min(1100px, 92%);
       margin: 40px auto 80px;
@@ -137,7 +141,7 @@
     }
 
     .music-header h2 {
-      font-size: 28px;
+      font-size: 30px;
     }
 
     .music-header p {
@@ -145,42 +149,41 @@
       margin-top: 6px;
     }
 
-    .play {
-      width: 50px;
-      height: 50px;
+    .music-icon {
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       display: grid;
       place-items: center;
       background: white;
       color: black;
-      font-size: 18px;
+      font-size: 20px;
     }
 
-    /* PLAYER */
     .player {
       padding: 25px;
-      border-radius: 25px;
-      background: linear-gradient(145deg,#151515,#0d0d0d);
+      border-radius: 26px;
+      background: linear-gradient(145deg,#171717,#0c0c0c);
       border: 1px solid rgba(255,255,255,.1);
-      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      box-shadow: 0 25px 70px rgba(0,0,0,.5);
     }
 
     .now-playing {
       display: flex;
       align-items: center;
       gap: 18px;
-      margin-bottom: 25px;
+      margin-bottom: 22px;
     }
 
     .cover {
-      width: 75px;
-      height: 75px;
+      width: 78px;
+      height: 78px;
       flex-shrink: 0;
-      border-radius: 18px;
       display: grid;
       place-items: center;
-      font-size: 34px;
-      background: linear-gradient(135deg,#222,#111);
+      border-radius: 20px;
+      font-size: 35px;
+      background: linear-gradient(135deg,#292929,#101010);
       border: 1px solid rgba(255,255,255,.12);
     }
 
@@ -197,15 +200,13 @@
 
     audio {
       width: 100%;
-      margin-top: 5px;
+      margin-bottom: 22px;
     }
 
-    /* SONG LIST */
     .songs {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2,1fr);
       gap: 12px;
-      margin-top: 20px;
     }
 
     .song {
@@ -225,8 +226,8 @@
     }
 
     .song-number {
-      width: 35px;
-      height: 35px;
+      width: 36px;
+      height: 36px;
       display: grid;
       place-items: center;
       border-radius: 11px;
@@ -255,16 +256,15 @@
 
     .song button {
       border: none;
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       cursor: pointer;
       background: white;
       color: black;
-      font-size: 14px;
+      font-size: 15px;
     }
 
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 35px 20px;
@@ -278,7 +278,6 @@
       color: #555;
     }
 
-    /* MOBILE */
     @media (max-width: 700px) {
 
       .topbar {
@@ -304,12 +303,11 @@
 
       .player {
         padding: 18px;
-        border-radius: 20px;
       }
 
       .cover {
-        width: 62px;
-        height: 62px;
+        width: 65px;
+        height: 65px;
       }
     }
   </style>
@@ -329,7 +327,9 @@
 
   <div class="hero-content">
 
-    <div class="label">PDA • MISSION 2027</div>
+    <div class="label">
+      PDA • MISSION 2027
+    </div>
 
     <h1>
       समाजवादी पार्टी
@@ -340,7 +340,9 @@
       अपनी playlist • अपना music • अपना page
     </p>
 
-    <div class="cycle">🚲</div>
+    <div class="cycle">
+      🚲
+    </div>
 
     <div class="info-box">
       <p id="workText">
@@ -353,17 +355,21 @@
 </section>
 
 
-<!-- PREMIUM MP3 SECTION -->
+<!-- MP3 MUSIC -->
 
 <section class="music">
 
   <div class="music-header">
+
     <div>
       <h2>🎵 Mission 2027 Music</h2>
-      <p>अपनी पसंद के MP3 गाने सुनें</p>
+      <p>अपनी पसंद के गाने सुनें</p>
     </div>
 
-    <div class="play">▶</div>
+    <div class="music-icon">
+      ▶
+    </div>
+
   </div>
 
 
@@ -371,7 +377,9 @@
 
     <div class="now-playing">
 
-      <div class="cover">🎵</div>
+      <div class="cover">
+        🎵
+      </div>
 
       <div>
         <div class="song-name" id="currentSong">
@@ -379,78 +387,205 @@
         </div>
 
         <div class="song-status">
-          Mission 2027 Playlist
+          Mission 2027 • MP3 Player
         </div>
       </div>
 
     </div>
 
 
-    <audio id="audioPlayer" controls>
-      <source src="" type="audio/mpeg">
-      आपका browser audio support नहीं करता।
-    </audio>
+    <audio id="audioPlayer" controls></audio>
 
 
     <div class="songs">
 
       <div class="song">
         <div class="song-number">01</div>
+
         <div class="song-info">
-          <div class="song-title">PDA Song 01</div>
-          <div class="song-type">MP3 Audio</div>
+          <div class="song-title">
+            PDA Song 01
+          </div>
+
+          <div class="song-type">
+            MP3 Audio
+          </div>
         </div>
-        <button onclick="playSong('songs/song1.mp3','PDA Song 01')">▶</button>
+
+        <button onclick="playSong('mp3/song1.mp3','PDA Song 01')">
+          ▶
+        </button>
       </div>
 
 
       <div class="song">
         <div class="song-number">02</div>
+
         <div class="song-info">
-          <div class="song-title">PDA Song 02</div>
-          <div class="song-type">MP3 Audio</div>
+          <div class="song-title">
+            PDA Song 02
+          </div>
+
+          <div class="song-type">
+            MP3 Audio
+          </div>
         </div>
-        <button onclick="playSong('songs/song2.mp3','PDA Song 02')">▶</button>
+
+        <button onclick="playSong('mp3/song2.mp3','PDA Song 02')">
+          ▶
+        </button>
       </div>
 
 
       <div class="song">
         <div class="song-number">03</div>
+
         <div class="song-info">
-          <div class="song-title">PDA Song 03</div>
-          <div class="song-type">MP3 Audio</div>
+          <div class="song-title">
+            PDA Song 03
+          </div>
+
+          <div class="song-type">
+            MP3 Audio
+          </div>
         </div>
-        <button onclick="playSong('songs/song3.mp3','PDA Song 03')">▶</button>
+
+        <button onclick="playSong('mp3/song3.mp3','PDA Song 03')">
+          ▶
+        </button>
       </div>
 
 
       <div class="song">
         <div class="song-number">04</div>
+
         <div class="song-info">
-          <div class="song-title">PDA Song 04</div>
-          <div class="song-type">MP3 Audio</div>
+          <div class="song-title">
+            PDA Song 04
+          </div>
+
+          <div class="song-type">
+            MP3 Audio
+          </div>
         </div>
-        <button onclick="playSong('songs/song4.mp3','PDA Song 04')">▶</button>
+
+        <button onclick="playSong('mp3/song4.mp3','PDA Song 04')">
+          ▶
+        </button>
       </div>
 
 
       <div class="song">
         <div class="song-number">05</div>
+
         <div class="song-info">
-          <div class="song-title">PDA Song 05</div>
-          <div class="song-type">MP3 Audio</div>
+          <div class="song-title">
+            PDA Song 05
+          </div>
+
+          <div class="song-type">
+            MP3 Audio
+          </div>
         </div>
-        <button onclick="playSong('songs/song5.mp3','PDA Song 05')">▶</button>
+
+        <button onclick="playSong('mp3/song5.mp3','PDA Song 05')">
+          ▶
+        </button>
       </div>
 
 
       <div class="song">
         <div class="song-number">06</div>
+
         <div class="song-info">
-          <div class="song-title">PDA Song 06</div>
-          <div class="song-type">MP3 Audio</div>
+          <div class="song-title">
+            PDA Song 06
+          </div>
+
+          <div class="song-type">
+            MP3 Audio
+          </div>
         </div>
-        <button onclick="playSong('songs/song6.mp3','PDA Song 06')">▶</button>
+
+        <button onclick="playSong('mp3/song6.mp3','PDA Song 06')">
+          ▶
+        </button>
+      </div>
+
+
+      <div class="song">
+        <div class="song-number">07</div>
+
+        <div class="song-info">
+          <div class="song-title">
+            PDA Song 07
+          </div>
+
+          <div class="song-type">
+            MP3 Audio
+          </div>
+        </div>
+
+        <button onclick="playSong('mp3/song7.mp3','PDA Song 07')">
+          ▶
+        </button>
+      </div>
+
+
+      <div class="song">
+        <div class="song-number">08</div>
+
+        <div class="song-info">
+          <div class="song-title">
+            PDA Song 08
+          </div>
+
+          <div class="song-type">
+            MP3 Audio
+          </div>
+        </div>
+
+        <button onclick="playSong('mp3/song8.mp3','PDA Song 08')">
+          ▶
+        </button>
+      </div>
+
+
+      <div class="song">
+        <div class="song-number">09</div>
+
+        <div class="song-info">
+          <div class="song-title">
+            PDA Song 09
+          </div>
+
+          <div class="song-type">
+            MP3 Audio
+          </div>
+        </div>
+
+        <button onclick="playSong('mp3/song9.mp3','PDA Song 09')">
+          ▶
+        </button>
+      </div>
+
+
+      <div class="song">
+        <div class="song-number">10</div>
+
+        <div class="song-info">
+          <div class="song-title">
+            PDA Song 10
+          </div>
+
+          <div class="song-type">
+            MP3 Audio
+          </div>
+        </div>
+
+        <button onclick="playSong('mp3/song10.mp3','PDA Song 10')">
+          ▶
+        </button>
       </div>
 
     </div>
@@ -463,8 +598,13 @@
 
 
 <footer>
+
   PDA • Mission 2027
-  <small>Created by Pranjul Yadav</small>
+
+  <small>
+    Created by Pranjul Yadav
+  </small>
+
 </footer>
 
 
@@ -505,9 +645,11 @@ setInterval(() => {
 function playSong(file, name) {
 
   const player = document.getElementById("audioPlayer");
+
   const title = document.getElementById("currentSong");
 
   player.src = file;
+
   title.textContent = name;
 
   player.play();
